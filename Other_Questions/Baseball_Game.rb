@@ -58,7 +58,6 @@ def cal_points(ops)
 end
 
 # Top solution with a runtime of 53ms
-
 def cal_points(ops)
     stack = []
     total = 0
