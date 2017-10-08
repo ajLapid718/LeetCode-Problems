@@ -6,7 +6,7 @@ def majority_element(nums)
   counter_hash = Hash.new(0)
 
   nums.each do |num|
-      counter_hash[num] += 1
+    counter_hash[num] += 1
   end
 
   counter_hash.find { |k,v| v == counter_hash.values.max }.first
