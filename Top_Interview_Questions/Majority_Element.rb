@@ -3,13 +3,13 @@
 
 # My solution with a runtime of 80ms
 def majority_element(nums)
-    counter_hash = Hash.new(0)
+  counter_hash = Hash.new(0)
 
-    nums.each do |num|
-        counter_hash[num] += 1
-    end
+  nums.each do |num|
+      counter_hash[num] += 1
+  end
 
-    counter_hash.find { |k,v| v == counter_hash.values.max }.first
+  counter_hash.find { |k,v| v == counter_hash.values.max }.first
 end
 
 # Top Solution with a better runtime
