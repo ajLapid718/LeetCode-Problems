@@ -18,30 +18,31 @@ def find_duplicates(nums)
   duplicates = []
 
   nums.each do |num|
-    val = (num.abs) - 1
-    if nums[val] < 0
-      duplicates << (val + 1)
+    visited = (num.abs - 1)
+    if nums[visited] < 0
+      duplicates << (visited + 1)
     else
-      nums[val] *= -1
+      nums[visited] *= -1
     end
   end
 
   duplicates
 end
 
-# Top solution with a runtime of 182ms
+# Top solution with a runtime of 182ms (slightly refactored by me for readability purposes)
 
 def find_duplicates(nums)
-  res = []
+  duplicates = []
 
-  nums.each do |x|
-    x = x.abs
-    if nums[x-1] < 0
-        res.push(x)
+  nums.each do |int|
+    visited = (int.abs - 1)
+    target = int.abs
+    if nums[visited] < 0
+      duplicates.push(target)
     else
-      nums[x-1] *= -1
+      nums[visited] *= -1
     end
   end
 
-  return res
+  return duplicates
 end
