@@ -11,25 +11,6 @@
 # The length of input array is a positive integer and will not exceed 10,000
 
 # My solution with a runtime of 112ms
-def find_max_consecutive_ones(nums)
-	counter = 0
-	arr = []
-
-	nums.each do |num|
-		if num == 1
-			counter += 1
-			arr << counter
-		else
-			counter = 0
-		end
-	end
-
-	if arr.empty?
-		return counter
-	else
-		return arr.max
-	end
-end
 
 # Top soluton with a runtime of 98ms
 def find_max_consecutive_ones(nums)
