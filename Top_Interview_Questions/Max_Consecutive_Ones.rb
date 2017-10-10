@@ -30,6 +30,7 @@ def find_max_consecutive_ones(nums)
 		return arr.max
 	end
 end
+
 # Top soluton with a runtime of 98ms
 def find_max_consecutive_ones(nums)
   max = 0
