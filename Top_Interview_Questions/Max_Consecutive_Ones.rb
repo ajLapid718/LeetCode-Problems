@@ -25,10 +25,10 @@ def find_max_consecutive_ones(nums)
 	end
 
 	if arr.empty?
-    return counter
-  else
-    return arr.max
-  end
+		return counter
+	else
+		return arr.max
+	end
 end
 
 # Top soluton with a runtime of 98ms
