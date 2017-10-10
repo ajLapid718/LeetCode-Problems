@@ -20,7 +20,7 @@ def find_duplicates(nums)
   nums.each do |num|
     visited = (num.abs - 1)
     if nums[visited] < 0
-      duplicates << (visited + 1)
+      duplicates << num.abs
     else
       nums[visited] *= -1
     end
