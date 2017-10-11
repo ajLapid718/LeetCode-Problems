@@ -42,3 +42,23 @@ end
 # In other words: if the nth element != targeted_value, then move this non-targeted-num to the beginning. Nice.
 # I need to get a better grasp of implementing through these constraints of in-place, constant space, etc.
 # The intuition is developing when it comes to feeling out if a flag can be helpful/toggled. Just need to lock in more, and it begins with understanding the problem fully and thoroughly.
+
+def remove_element(nums, val)
+  current_spot = 0
+  reserved_spots = 0
+
+  while current_spot < nums.length
+    if nums[current_spot] != val
+      nums[reserved_spots] = nums[current_spot]
+      reserved_spots += 1
+    end
+    current_spot += 1
+  end
+
+  reserved_spots
+end
+
+# Refactored the code for better readability for myself and hopefully for anyone viewing this
+# Reserved spots open for a non-targeted-num once a non-targeted-num is encountered
+# The amount of reserved_spots will then be the length of non-targeted-nums
+# The line that reads: nums[reserved_spots] = nums[current_spot] is when the reserved_spot is populated with the current_num which != targeted_value
