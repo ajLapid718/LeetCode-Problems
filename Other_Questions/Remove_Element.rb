@@ -17,7 +17,7 @@ end
 
 # Top solution with a runtime of 49ms and does not invoke delete
 # It's a good thing to do a lot with a little in some cases, especially when demonstrating fundamentals
-# So I plan on stepping through this function and get a deeper understanding of what's going on
+# So I plan on stepping through this function to get a deeper understanding of what's going on
 
 def remove_element(nums, val)
   slider = 0
@@ -33,3 +33,12 @@ def remove_element(nums, val)
 
   point
 end
+
+# It's important for me to really understand the nature of the problem's prompt.
+# As long as we output a proper length (number of elements that are not the targeted value) and as long as the first length_amount of elements are the non-targeted elements...
+# ...then the objective is met. The value of nums[slider] is the array's nth element. The slider will run the whole time, as the faster tally. The point will only increment
+# upon hitting a non-targeted number. Then, the elements behind this position will be set as the non-targeted-num aka nums[slider].
+
+# In other words: if the nth element != targeted_value, then move this non-targeted-num to the beginning. Nice.
+# I need to get a better grasp of implementing through these constraints of in-place, constant space, etc.
+# The intuition is developing when it comes to feeling out if a flag can be helpful/toggled. Just need to lock in more, and it begins with understanding the problem fully and thoroughly.
