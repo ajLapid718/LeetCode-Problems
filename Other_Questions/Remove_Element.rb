@@ -59,6 +59,6 @@ def remove_element(nums, val)
 end
 
 # Refactored the code for better readability for myself and hopefully for anyone viewing this
-# Reserved spots open for a non-targeted-num once a non-targeted-num is encountered
+# Reserved spots open up for a non-targeted-num once a non-targeted-num is encountered
 # The amount of reserved_spots will then be the length of non-targeted-nums
-# The line that reads: nums[reserved_spots] = nums[current_spot] is when the reserved_spot is populated with the current_num which != targeted_value
+# The line that reads: nums[reserved_spots] = nums[current_spot] is when the reserved_spot becomes populated with the current_num which != targeted_value
