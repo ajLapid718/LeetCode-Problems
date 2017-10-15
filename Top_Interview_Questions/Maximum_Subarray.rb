@@ -8,9 +8,9 @@ def max_sub_array(nums)
   maximum = nums.first
 
   nums[1..-1].each do |num|
-      current_sum = 0 if current_sum.negative?
-      current_sum += num
-      maximum = current_sum if current_sum > maximum
+    current_sum = 0 if current_sum.negative?
+    current_sum += num
+    maximum = current_sum if current_sum > maximum
   end
 
   maximum
