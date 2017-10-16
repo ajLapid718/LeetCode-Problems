@@ -27,7 +27,7 @@ def quicksort(arr)
   return [] if arr.empty?
   pivot_element = arr.first
   left_of_pivot, right_of_pivot = arr[1..-1].partition { |element| (element <=> pivot_element) <= 0 }
-  quicksort(left) + [pivot_element] + quicksort(right)
+  quicksort(left_of_pivot) + [pivot_element] + quicksort(right_of_pivot)
 end
 
 =end
