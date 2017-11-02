@@ -21,7 +21,7 @@ def remove_duplicates(nums)
   counter = 0
   original_length = nums.length
 
-  (1..nums.length).each do |i|
+  (1...nums.length).each do |i|
     if nums[i-1] == nums[i]
       counter += 1
     else
@@ -38,7 +38,7 @@ def remove_duplicates(nums)
   counter = 0 # Establish a counter variable to keep track of the amount of duplicates
   original_length = nums.length # Hold a reference to the original length of the array because the array without duplicates will have less elements
 
-  (1..nums.length).each do |i| # Iterate through the elements
+  (1...nums.length).each do |i| # Iterate through the elements; there's no need to go to the end, where we'd end up with nil values since the value of the length of the array is going to hold an index out of bounds
     if nums[i-1] == nums[i] # Check to see if the element behind the current element and the current element are equivalent/duplicates
       counter += 1 # We only need to increment the counter because we've found a duplicate; nothing more and nothing less
     else
