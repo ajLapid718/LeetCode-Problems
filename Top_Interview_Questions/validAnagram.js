@@ -68,5 +68,5 @@ function isAnagram(s,t) {
     chars[letterInUnicode] -= 1; // Decrement to update the frequency; both arrays should end up with 128 zeros if the words are anagrams;
   }
 
-  return true; // There was never a point where
+  return true; // There was never a point where we accessed an index holding the value of 0; the words are anagrams;
 }
