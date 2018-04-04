@@ -33,18 +33,15 @@ function topKFrequent(nums, k) {
     }
   }
 
-  let counter = 0;
-
   for (let j = bucket.length-1; j > 0; j--) {
     if (bucket[j] !== null) {
       result.push(bucket[j]);
-      counter += bucket[j].length;
     }
 
-    if (counter >= k) {
+    if (result.length >= k) {
       break;
     }
   }
 
-  return result.join(',').split(',').map(el => parseInt(el));
+  return result.join(',').split(',').slice(0, k).map(Number);
 }
