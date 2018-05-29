@@ -40,16 +40,18 @@ function findDisappearedNumbers(nums) {
 }
 
 // Alternatively, a solution with O(n) runtime and without auxillary space;
-function findDisappearedNums(nums) {
+function findDisappearedNumbers(nums) {
   let result = [];
 
   for (let i = 0; i < nums.length; i++) {
-    let visitedIdx = Math.abs(nums[i]) - 1;
+    let num = nums[i];
+    let visitedIdx = Math.abs(num) - 1;
     if (nums[visitedIdx] > 0) nums[visitedIdx] *= -1;
   }
 
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] > 0) result.push(i+1);
+    let num = nums[i];
+    if (num > 0) result.push(i+1);
   }
 
   return result;
