@@ -10,7 +10,7 @@ Output: 1->2->3->4->5
 */
 
 // My solution;
-// If we a falsy value is passed in as a LL, return that falsy value;
+// If a falsy value is passed in as a LL, return that falsy value;
 // While we have a head node and while the data on the node matches the target value, keep sliding through the LL;
 // This allows us to ignore any matching values at the front of the list, thereby allowing us to start with a non-matching value;
 // If the head is a falsy value at this point, then all of the values were matching, which means we slid over to the tail-end null;
