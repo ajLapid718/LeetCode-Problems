@@ -36,7 +36,7 @@ function productExceptSelf(arr) {
 // Then the forward products would be: [1, 2, 14, 42];
 // This is so because: [1*1, 1*2, 2*7, 2*7*3];
 // Now we need to grab the "backward products";
-// From iterating from right to left, we get: [84, 24, 56, 42];
+// By iterating over the input array from right to left, we get: [84, 24, 56, 42];
 // This is so because: [12*7, 12*2, 4*14, 1*42];
 // When going forwards, we can ignore the value at the tail-end;
 // When going backwards, we can ignore the value at the head-end;
