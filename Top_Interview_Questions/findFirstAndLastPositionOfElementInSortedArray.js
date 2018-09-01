@@ -20,7 +20,7 @@ Output: [-1,-1]
 
 // Time Complexity: O(log n) + O(log n), which simplifies to O(log n);
 // Space Complexity: O(1);
-function searchRange(nums, target, side) {
+function searchRange(nums, target) {
   let firstPos = bSearch(nums, target, "left");
   let lastPos = bSearch(nums, target, "right");
   return [firstPos, lastPos];
