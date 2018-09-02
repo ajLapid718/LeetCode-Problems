@@ -37,8 +37,8 @@ function search(nums, target) {
     if (currNum === target) return midPoint;
     if (rightPole === target) return upperBound;
 
-    if (currNum <= rightPole) { // We investigate the array from the midpoint to the last element;
-      if (currNum < target && target < rightPole) { // Check if the target lives between the midpint and the last element;
+    if (currNum <= rightPole) { // We investigate the array from the middle element to the last element;
+      if (currNum < target && target < rightPole) { // Check if the target lives between the middle element and the last element;
         lowerBound = midPoint + 1;
       }
       else {
