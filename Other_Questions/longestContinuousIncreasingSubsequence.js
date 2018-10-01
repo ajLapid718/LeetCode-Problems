@@ -23,7 +23,7 @@ Note: Length of the array will not exceed 10,000.
 // Time Complexity: O(n);
 // Space Complexity: O(1);
 // Note: In the event that our array is in ascending order, the "else" condition will never execute;
-// This would result in the currLength variable holding the length maximum length;
+// This would result in the currLength variable holding the maximum length aka the length of the array;
 // For this reason, we need to find the maximum value between the master counter and the temp counter;
 function findLengthOfLCIS(nums) {
   if (nums.length === 0) return 0;
