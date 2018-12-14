@@ -29,13 +29,13 @@ The above arrows point to positions where the corresponding bits are different.
 
 // What happens if, when comparing the binary-form of "x" to the binary-form of "y", one value has more digits than the other?;
 
-// To convert an integer from base-ten to base-two, we need to iteratively divide by 2 and check the remainder at hand each step of the way
+// To convert an integer from base-ten to base-two, we need to iteratively divide by 2 and check the remainder at hand each step of the way;
 // If the remainder is 0, we shift in a 0;
 // If the remainder is 1, we shift in a 1;
 // Repeat this until we reach 0;
 
 // For an appropriate comparison, grab the amount of digits, or the length, of each number in binary;
-// Pad the "shorter" value with as many zeros as necessary to reach an equal length with the other value;
+// Pad the "shorter" value with as many leading zeros as necessary to reach an equal length with the other value;
 // Then loop through both values and increment the counter based on whether or not a difference exists within the digit-to-digit or column-to-column comparison;
 
 // My Solution;
@@ -83,7 +83,7 @@ function convertToBinary(num) {
 
 // If a number is odd, then its last bit in binary is odd (1);
 // If a number is even, then its last bit in binary is even (0);
-// XOR if two different numbers will give you 1;
+// XOR (^) of two different numbers will give you 1;
 // Shift over to next numbers;
 // Divide "x" by 2;
 
