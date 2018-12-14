@@ -1,4 +1,5 @@
 /*
+
 Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below.
 
 Example:
@@ -14,6 +15,7 @@ You may assume the input string will only contain letters of alphabet.
 
 */
 
+// My Solution;
 // Space Complexity: O(1);
 // Time Complexity: O(n*m) where n is the amount of words given and m is the amount of letters within an individual word;
 
@@ -53,6 +55,7 @@ function findWords(words) {
     let currentWord = words[i].toLowerCase();
     let rowAtHand = keyboard[currentWord[0]];
     let flag = true;
+
     for (let j = 0; j < currentWord.length; j++) {
       let currentLetter = currentWord[j];
       if (keyboard[currentLetter] !== rowAtHand) {
@@ -60,6 +63,7 @@ function findWords(words) {
         break;
       }
     }
+
     if (flag === true) targetWords.push(words[i]);
   }
 
