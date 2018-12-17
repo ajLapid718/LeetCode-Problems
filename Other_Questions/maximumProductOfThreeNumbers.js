@@ -22,7 +22,7 @@ Note:
 // Space Complexity: O(1);
 // NOTE: My initial solution passeed all 83 test cases provided by LeetCode, but it would not pass if all of the elements in the array were negative values;
 // With the way I was originally approaching the problem, I would need to handle the following variables differently: "negPrimary" and "negSecondary";
-// Specifically, I would need to store the least negative values (values that are closer to the value of zero) in addition to the most negative values;
+// Specifically, I would need to store the least negative values (values that are closer to the value of zero) instead of the most negative values;
 // If all of the elements in the input array are negative, then we'd need to multiply the three least negative values together;
 // For example: [-4,-3,-2,-1];
 // My solution would perform and return: -1 * -3 * -4 === -12;
@@ -30,6 +30,14 @@ Note:
 // Therefore, if all of the values in the input array were negative, we'd have to see if the current number (currNum) is greater than negPrimary (same applies to negSecondary);
 // Such a change would also require modifying the state of negPrimary and negSecondary from Infinity to -Infinity so that we could successfully grab the least negative values;
 // In this commit, I reflect these improvements;
+// Things to keep in mind:
+// If we have all positive values, we need to multiply the three greatest positive values;
+// If we have two positive values and the rest of the values are negative, we need to multiply the two positive values and the least negative value;
+// If we have one positive value and the rest of the values are negative, we need to multiply the positive value and the two greatest negative values (remember, a negative x a negative is a positive value);
+// If we have all negative values, then we need to multiply the three least negative values;
+// If we have two negative values and the rest of the values are positive, then we need to multiply the two negative values and the greatest positive value;
+// If we have one negative value and the rest of the values are positive, then we need to multiply the three greatest positive values;
+// We can avoid exact duplicates (same value and same index) by verifying an element's value and an element's index;
 function maximumProduct(nums) {
   if (nums.length === 3) return nums[0] * nums[1] * nums[2];
 
