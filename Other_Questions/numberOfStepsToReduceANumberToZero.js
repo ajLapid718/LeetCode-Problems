@@ -46,6 +46,8 @@ Constraints:
 
 */
 
+// Iterative solution;
+
 function numberOfSteps(num) {
   let steps = 0;
   
@@ -60,4 +62,20 @@ function numberOfSteps(num) {
   }
   
   return steps;
+}
+
+// Recursive solution;
+
+function numberOfSteps(num) {
+  if (num === 0) {
+    return 0;
+  }
+  
+  if (num % 2 === 0) {
+    return 1 + numberOfSteps(num/2);
+  }
+  
+  if (num % 2 === 1) {
+    return 1 + numberOfSteps(num-1);
+  }
 }
