@@ -80,3 +80,72 @@ function smallerNumbersThanCurrent(nums) {
 
   return nums.map(currentNum => numberAndTarget[currentNum]);
 }
+
+/*
+
+Some constraints to keep in mind:
+
+The size of the input array will be as small as 2 and as large as 500;
+The elements within the input array will be as small 0 and as large as 100;
+
+We can implement a tailor-made, "bucket sort"-esque approach this problem.
+
+The idea behind this is that we can bucket, or group together, elements from one array and place them in more advantageous positions in a different array. This array that contains all of these rearranged buckets will then be able to inform us of how many elements exist in each bucket and how many buckets/elements precede and succeed any single bucket.
+
+For any given problem, we only need an auxillary array (the one containing buckets) the value of the largest number in the input array offset by 1 (aka: Max of input array + 1);
+
+We can then leverage the indices of the auxillary array (the one containing buckets) to represent "the number from the input array" and the value at that index will represent "the frequency of that number".
+
+In doing so, with this set up, we can have numbers in ascending order. 
+
+We can then use a combination of a tracker/pointer technique to iterate through the buckets and, any time we encounter a frequency greater than 0, we can then mark the numbers in such a way that indicates: "any number to the left of this number (aka: the sum of all frequencies prior to this number) is how many numbers are smaller than this current number";
+
+Here is what I mean in an example.
+
+Let's say we are given an input array that looks like this: [3,2,2];
+The expected output would be an array that looks like this: [2,0,0];
+
+There are two numbers smaller than 3.
+There are zero numbers smaller than 2.
+There are zero numbers smaller than 2.
+
+The auxillary array would be shaped liked this: [0, 0, 2, 1];
+
+Keep in mind that the index represents "number from input array" and the value represents "frequency of number from input array".
+
+Written form refers to frequency.
+Numerical form refers to actual values based on input array.
+
+There are zero 0s.
+There are zero 1s.
+There are two 2s.
+There is one 3.
+
+If we had a tracker that was initialized to 0, and it kept a running count such that any time we encountered a non-zero frequency in the auxillary array, we could record and re-assign "how many numbers are smaller (to the left of) this current number".
+
+*/
+
+// Time Complexity: O(n+k) where n is the amount of elements in nums and k is the amount of buckets in the auxillary array;
+// Space Complexity: O(n) where n is the amount of elements in nums (we might have a buckets array that nears the size of the input array);
+
+function smallerNumbersThanCurrent(nums) {
+  let numberAndTarget = {};
+  let buckets = Array(Math.max(...nums) + 1).fill(0);
+  
+  for (let i = 0; i < nums.length; i++) {
+    let currentNum = nums[i];
+    buckets[currentNum]++;
+  }
+  
+  let sumOfNumsLessThanCurrent = 0;
+  
+  for (let i = 0; i < buckets.length; i++) {
+    let frequency = buckets[i];
+    if (frequency > 0) {
+      numberAndTarget[i] = sumOfNumsLessThanCurrent;
+      sumOfNumsLessThanCurrent += frequency;
+    }
+  }
+  
+  return nums.map(currentNumber => numberAndTarget[currentNumber]);
+}
