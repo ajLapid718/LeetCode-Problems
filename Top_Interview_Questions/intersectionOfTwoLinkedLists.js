@@ -86,3 +86,84 @@ function getIntersectionNode(headA, headB) {
     return currNodeOfA;
   }
 }
+
+// My improved solution;
+
+/*
+
+We shouldn't mutate the linked list(s), so we can't append/drop a flag at each node to determine if we have already visited any particular node;
+
+We should try out best to maintain a time complexity of O(n) and a space complexity of O(1);
+
+Initial plan:
+
+- Traverse headA;
+- Keep a count of the amount of nodes;
+
+- Traverse headB;
+- Keep a count of the amount of nodes;
+
+If both linked lists have the same amount of nodes, then we can begin with either;
+
+However, if both linked lists have a different amount of nodes, then we should take the difference (diff) in amount of nodes and use that difference to move the longer linked list forward;
+
+We can't have an intersection that happens behind the shorter linked list;
+
+Once we have one pointer on each respective linked list starting across from each other, then we can move both pointers forward at a rate of 1 node per iteration;
+
+If both nodes point to null, then we can return null --- there is no intersection;
+
+If, however, both nodes point to the same node, then we can return that node --- there is an intersection;
+
+*/
+
+function getIntersectionNode(headA, headB) {
+  let sizeOfA = 0;
+  let sizeOfB = 0;
+  
+  let currNode = headA;
+  
+  while (currNode) {
+    sizeOfA++;
+    currNode = currNode.next;
+  }
+  
+  currNode = headB;
+  
+  while (currNode) {
+    sizeOfB++;
+    currNode = currNode.next;
+  }
+  
+  let diff = Math.abs(sizeOfA - sizeOfB);
+  let otherPointer;
+  
+  if (sizeOfA >= sizeOfB) {
+    currNode = headA;
+    
+    while (diff) {
+      currNode = currNode.next;
+      diff--;
+    }
+    
+    otherPointer = headB;
+  }
+  else {
+    currNode = headB;
+    
+    while (diff) {
+      currNode = currNode.next;
+      diff--;
+    }
+    
+    otherPointer = headA;
+  }
+  
+  while (currNode && otherPointer) {
+    if (currNode === otherPointer) return currNode;
+    currNode = currNode.next;
+    otherPointer = otherPointer.next;
+  }
+  
+  return null;
+}
