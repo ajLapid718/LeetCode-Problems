@@ -36,3 +36,26 @@ function rightSideView(root) {
   helper(root, 0);
   return values;
 };
+
+// Implement a BFS/level-order traversal;
+// Grab the right-most node [its value] from that level to append to the output array;
+
+function rightSideView(root) {
+  if (!root) return [];
+  
+  let values = [];
+  let queue = [root];
+  
+  while (queue.length) {
+    let nodesOnLevel = queue.length;
+    
+    for (let i = 0; i < nodesOnLevel; i++) {
+      let currentNode = queue.shift();
+      if (i === 0) values.push(currentNode.val);
+      if (currentNode.right) queue.push(currentNode.right);
+      if (currentNode.left) queue.push(currentNode.left);
+    }
+  }
+  
+  return values;
+}
